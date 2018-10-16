@@ -12,7 +12,6 @@ function getAssetProps(id: string): Promise<IAssetObject> {
     if (id === WAVES_PROPS.id) {
         return Promise.resolve(WAVES_PROPS);
     }
-    console.log("-------------------------------");
     return NodeAPIv1.transactions.get(id).then((assetTransaction) => ({
         id: id,
         name: assetTransaction.name,
