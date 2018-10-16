@@ -10084,6 +10084,7 @@ function getAssetProps(id) {
     if (id === constants_1.WAVES_PROPS.id) {
         return Promise.resolve(constants_1.WAVES_PROPS);
     }
+    console.log("-------------------------------");
     return index_1.v1.transactions.get(id).then(function (assetTransaction) { return ({
         id: id,
         name: assetTransaction.name,
