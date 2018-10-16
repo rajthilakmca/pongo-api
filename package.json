@@ -21,7 +21,7 @@
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.43",
-    "browserify": "^14.4.0",
+    "browserify": "16.2.2",
     "chai": "^4.1.2",
     "karma": "^1.7.1",
     "karma-chai": "^0.1.0",
@@ -33,7 +33,7 @@
     "mocha": "^4.0.1",
     "mock-require": "^2.0.2",
     "requirejs": "^2.3.5",
-    "typescript": "^2.5.3",
+    "typescript": "2.5.3",
     "uglify-js": "^3.1.4"
   },
   "homepage": "https://github.com/wavesplatform/waves-api#readme",

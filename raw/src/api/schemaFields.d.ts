@@ -1,5 +1,4 @@
 import { BooleanPart, NumberPart, StringPart } from 'ts-api-validator';
-import { getTimestamp, removeRecipientPrefix } from '../utils/remap';
 declare const _default: {
     publicKey: {
         type: typeof StringPart;
@@ -27,7 +26,7 @@ declare const _default: {
     recipient: {
         type: typeof StringPart;
         required: boolean;
-        parseValue: typeof removeRecipientPrefix;
+        parseValue: (original: any) => any;
     };
     reissuable: {
         type: typeof BooleanPart;
@@ -37,7 +36,7 @@ declare const _default: {
     timestamp: {
         type: typeof NumberPart;
         required: boolean;
-        parseValue: typeof getTimestamp;
+        parseValue: (timestamp?: any) => any;
     };
 };
 export default _default;

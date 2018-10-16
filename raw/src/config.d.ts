@@ -6,7 +6,7 @@ declare const _default: {
     getMinimumSeedLength(): number;
     getRequestParams(): IHash<any>;
     getAssetFactory(): Function;
-    getLogLevel(): import("interfaces").TLogLevel;
+    getLogLevel(): "error" | "none" | "warning" | "info";
     getTimeDiff(): number;
     get(): IWavesConfig;
     set(newConfig: Partial<IWavesConfig>): void;

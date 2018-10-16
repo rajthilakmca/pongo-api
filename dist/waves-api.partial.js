@@ -9275,7 +9275,6 @@ exports.default = {
 },{"../../../classes/Asset":69,"../../../classes/Money":72}],55:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var _a;
 var constants = require("../../../constants");
 var transactionTypes = (_a = {},
     _a[constants.ISSUE_TX_NAME] = constants.ISSUE_TX,
@@ -9298,6 +9297,7 @@ exports.default = {
         return function (item) { return item.recipient && item.recipient === recipient; };
     }
 };
+var _a;
 
 },{"../../../constants":77}],56:[function(require,module,exports){
 "use strict";
@@ -10860,15 +10860,14 @@ function createTransactionClass(txType, fields, apiSchema) {
         };
         TransactionClass.prototype._castFromBytesToBase58 = function (key) {
             return this.getExactBytes(key).then(function (bytes) {
-                var _a;
                 if (key === 'attachment') {
                     bytes = Uint8Array.from(Array.prototype.slice.call(bytes, 2));
                 }
                 return _a = {}, _a[key] = base58_1.default.encode(bytes), _a;
+                var _a;
             });
         };
         TransactionClass.prototype._castFromRawToPrefixed = function (key) {
-            var _a;
             var type = key;
             if (type === 'recipient') {
                 type = this._rawData[key].length <= 30 ? 'alias' : 'address';
@@ -10885,6 +10884,7 @@ function createTransactionClass(txType, fields, apiSchema) {
                 throw new Error("There is no type '" + type + "' to be prefixed");
             }
             return Promise.resolve((_a = {}, _a[key] = prefix + this._rawData[key], _a));
+            var _a;
         };
         return TransactionClass;
     }());
@@ -12932,7 +12932,7 @@ exports.blake2bInit = blake2bInit;
 // Requires hash context and Uint8Array (byte array)
 function blake2bUpdate(ctx, input) {
     for (var i = 0; i < input.length; i++) {
-        if (ctx.c === 128) { // buffer full ?
+        if (ctx.c === 128) {
             ctx.t += ctx.c; // add counters
             blake2bCompress(ctx, false); // compress (not last)
             ctx.c = 0; // counter to zero
@@ -12945,7 +12945,7 @@ exports.blake2bUpdate = blake2bUpdate;
 // Returns a Uint8Array containing the message digest
 function blake2bFinal(ctx) {
     ctx.t += ctx.c; // mark last block offset
-    while (ctx.c < 128) { // fill up with zeros
+    while (ctx.c < 128) {
         ctx.b[ctx.c++] = 0;
     }
     blake2bCompress(ctx, true); // final block flag = 1
@@ -14365,7 +14365,6 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var _a;
 var create = require("parse-json-bignumber");
 var WavesRequestError_1 = require("../errors/WavesRequestError");
 var fetch_1 = require("../libs/fetch");
@@ -14432,6 +14431,7 @@ function wrapTransactionRequest(TransactionConstructor, preRemapAsync, postRemap
     };
 }
 exports.wrapTransactionRequest = wrapTransactionRequest;
+var _a;
 
 },{"../config":76,"../errors/WavesRequestError":79,"../libs/fetch":85,"parse-json-bignumber":undefined}],96:[function(require,module,exports){
 "use strict";

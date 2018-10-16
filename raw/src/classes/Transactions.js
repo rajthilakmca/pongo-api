@@ -114,15 +114,14 @@ function createTransactionClass(txType, fields, apiSchema) {
         };
         TransactionClass.prototype._castFromBytesToBase58 = function (key) {
             return this.getExactBytes(key).then(function (bytes) {
-                var _a;
                 if (key === 'attachment') {
                     bytes = Uint8Array.from(Array.prototype.slice.call(bytes, 2));
                 }
                 return _a = {}, _a[key] = base58_1.default.encode(bytes), _a;
+                var _a;
             });
         };
         TransactionClass.prototype._castFromRawToPrefixed = function (key) {
-            var _a;
             var type = key;
             if (type === 'recipient') {
                 type = this._rawData[key].length <= 30 ? 'alias' : 'address';
@@ -139,6 +138,7 @@ function createTransactionClass(txType, fields, apiSchema) {
                 throw new Error("There is no type '" + type + "' to be prefixed");
             }
             return Promise.resolve((_a = {}, _a[key] = prefix + this._rawData[key], _a));
+            var _a;
         };
         return TransactionClass;
     }());

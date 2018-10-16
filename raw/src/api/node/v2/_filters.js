@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var _a;
 var constants = require("../../../constants");
 var transactionTypes = (_a = {},
     _a[constants.ISSUE_TX_NAME] = constants.ISSUE_TX,
@@ -23,4 +22,5 @@ exports.default = {
         return function (item) { return item.recipient && item.recipient === recipient; };
     }
 };
+var _a;
 //# sourceMappingURL=_filters.js.map
